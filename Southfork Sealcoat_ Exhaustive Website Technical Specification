@@ -1,0 +1,430 @@
+# Southfork Sealcoat: Exhaustive Website Technical Specification
+
+This document provides an exhaustive technical and design specification for the Southfork Sealcoat website, intended for direct implementation by a web developer or through advanced AI-assisted web builders. It covers strategic foundations, detailed visual style guides, page-by-page layouts, functional requirements, technical architecture, and an implementation roadmap.
+
+---
+
+## 1. Strategic Foundation
+
+### 1.1 Business Overview
+Southfork Sealcoat is a premium residential sealcoating service operating in Southeast Idaho, specifically targeting Rigby, Rexburg, Idaho Falls, and Ammon. The business emphasizes high-quality craftsmanship, meticulous preparation, and durable, hand-squeegeed applications tailored for Idaho's climate. The owner, Joel, operates the business as a side hustle with potential for future sale or partial ownership, requiring a scalable and efficient operational platform.
+
+### 1.2 Brand Identity & Positioning
+*   **Core Identity**: A trustworthy, local, and professional service provider known for superior craftsmanship and attention to detail in residential asphalt sealcoating.
+*   **Positioning**: Premium quality and long-term value over low cost. Southfork Sealcoat is for homeowners who view their driveway as an investment and seek the best protection available.
+*   **Key Differentiators**:
+    *   **Thorough Preparation**: Power washing, crack cleaning, and patching before sealing.
+    *   **Hand-Squeegeed Application**: Ensures a thicker, more uniform, and durable coat compared to spray methods.
+    *   **Idaho Climate Expertise**: Sealcoating solutions specifically designed to withstand freeze-thaw cycles.
+    *   **Personalized Service**: Direct interaction and professional conduct.
+
+### 1.3 Target Audience
+*   **Primary**: Middle-income residential homeowners (35-65 years old) in Southeast Idaho who are proactive about home maintenance, value quality, and are willing to pay for premium services. They are likely to research services online and appreciate visual proof of work.
+*   **Secondary**: Homeowners Associations (HOAs) and small commercial property managers seeking reliable, high-quality sealcoating for residential communities or small business lots.
+
+### 1.4 Core Objectives
+1.  **Brand Authority & Trust**: Establish Southfork Sealcoat as the undisputed local expert and most trusted provider.
+2.  **Lead Generation**: Maximize conversion of website visitors into qualified quote requests.
+3.  **Operational Efficiency**: Implement tools for streamlined online payments and internal job reporting/tracking.
+4.  **Local SEO Dominance**: Achieve top rankings for local sealcoating search terms across target cities.
+5.  **Scalability**: Build a platform that can support business growth, potential sale, or management by others.
+
+---
+
+## 2. Visual Style Guide
+
+### 2.1 Color Palette
+*   **Primary Dark**: `#1A1A1A` (Charcoal Black) - For backgrounds, primary text, and strong accents.
+*   **Secondary Dark**: `#333333` (Dark Gray) - For secondary text, borders, and subtle shadows.
+*   **Accent 1 (Safety Yellow)**: `#FFD700` (Gold/Safety Yellow) - For Call-to-Action (CTA) buttons, highlights, and key visual elements. Represents visibility, caution, and quality.
+*   **Accent 2 (Safety Orange)**: `#FF8C00` (Dark Orange) - Alternative or complementary accent for CTAs, warnings, or secondary highlights. Represents energy and action.
+*   **Neutral Light**: `#F5F5F5` (Off-White/Light Gray) - For backgrounds, content blocks, and subtle separation.
+*   **White**: `#FFFFFF` - For text on dark backgrounds, pristine elements.
+
+### 2.2 Typography
+*   **Headings (H1, H2, H3)**: **Montserrat** (Sans-serif) - Bold, modern, and strong. Used for titles and section headers to convey professionalism and authority.
+    *   H1: 48px (Desktop), 36px (Mobile) - Bold
+    *   H2: 36px (Desktop), 28px (Mobile) - Semi-Bold
+    *   H3: 24px (Desktop), 20px (Mobile) - Medium
+*   **Body Text**: **Open Sans** (Sans-serif) - Highly readable, clean, and professional. Used for paragraphs, descriptions, and general content.
+    *   Paragraphs: 16px (Desktop), 14px (Mobile) - Regular
+    *   Small Text/Captions: 12px (Desktop/Mobile) - Regular
+*   **Call-to-Action (CTA) Text**: **Montserrat** - Semi-Bold, slightly larger than body text for emphasis.
+    *   CTA: 18px (Desktop), 16px (Mobile) - Semi-Bold
+
+### 2.3 Spacing & Layout
+*   **Grid System**: A 12-column responsive grid system (e.g., Bootstrap or Tailwind CSS grid) for consistent layout across devices.
+*   **Base Spacing Unit**: 8px. All margins, paddings, and gaps should be multiples of 8px (e.g., 8px, 16px, 24px, 32px, 48px, 64px).
+*   **Content Width**: Max content width of 1200px on large screens, centered.
+*   **Mobile-First Design**: All layouts and components must be designed and optimized for mobile devices first, then scaled up for tablets and desktops.
+*   **Visual Hierarchy**: Clear use of size, color, and spacing to guide the user's eye to important information and CTAs.
+
+### 2.4 Imagery & Iconography
+*   **Photography**: High-resolution, professional photos of actual Southfork Sealcoat jobs (before, during, after), owner/crew, and local Idaho landscapes. Authenticity is key.
+*   **Before/After Sliders**: Essential for showcasing quality. Implement interactive sliders where users can drag to compare.
+*   **Icons**: Simple, clean, and modern line icons for service features, benefits, and process steps. Use a consistent icon set (e.g., Font Awesome, Material Icons).
+
+---
+
+## 3. Site Architecture (Sitemap & User Flow)
+
+### 3.1 Sitemap
+1.  **Homepage (`/`)**
+2.  **Services (`/services`)**
+    *   Premium Sealcoating (`/services/sealcoating`)
+    *   Crack Filling (`/services/crack-filling`)
+    *   Line Striping (`/services/line-striping`)
+    *   Patching & Prep (`/services/patching`)
+3.  **Local Service Areas (`/areas`)**
+    *   Rigby Sealcoating (`/areas/rigby`)
+    *   Rexburg Sealcoating (`/areas/rexburg`)
+    *   Idaho Falls Sealcoating (`/areas/idaho-falls`)
+    *   Ammon Sealcoating (`/areas/ammon`)
+4.  **About Us (`/about`)**
+5.  **Blog / FAQ Hub (`/blog`)**
+    *   Individual Blog Posts (`/blog/[post-slug]`)
+    *   FAQ Section (`/blog#faq` or `/faq`)
+6.  **Request a Quote (`/quote`)**
+7.  **Online Payment (`/pay`)**
+8.  **Employee Dashboard (`/employee-login`)**
+    *   Employee Login Page (`/employee-login`)
+    *   Job Report Form (`/employee/report`)
+    *   Admin Job Reports View (`/employee/admin-reports`) - *Accessible only to owner/admin*
+9.  **Privacy Policy (`/privacy`)**
+10. **Terms of Service (`/terms`)**
+
+### 3.2 Key User Flows
+*   **Prospective Customer (Quote Request)**:
+    *   Homepage -> Services -> Quote Request Form -> Thank You/Confirmation.
+    *   Local SEO Page -> Quote Request Form -> Thank You/Confirmation.
+    *   Blog Post -> CTA -> Quote Request Form -> Thank You/Confirmation.
+*   **Existing Customer (Payment)**:
+    *   Direct Link (from invoice) -> Online Payment Page -> Payment Confirmation.
+    *   Homepage/Footer -> Online Payment Page -> Payment Confirmation.
+*   **Employee (Job Reporting)**:
+    *   Employee Login Page -> Dashboard -> Job Report Form -> Submission Confirmation.
+
+---
+
+## 4. Page-by-Page Detailed Specifications
+
+### 4.1 Homepage (`/`)
+*   **Goal**: Immediately establish trust, authority, and craftsmanship; drive quote requests.
+*   **Layout**: 
+    *   **Header**: Logo (Southfork Sealcoat), Navigation (Services, Areas, About, Blog, Quote), CTA Button (Request a Free Estimate - Accent Yellow).
+    *   **Hero Section**: 
+        *   Full-width background image/video (high-quality sealcoating in action or finished driveway).
+        *   **H1**: "Protect Your Investment with Southeast Idaho’s Premium Sealcoating Experts."
+        *   **H2**: "Hand-squeegeed for maximum durability. We don't just spray; we protect."
+        *   **Primary CTA**: Large, prominent "Request a Free Estimate" button (Accent Yellow).
+        *   **Secondary CTA**: "View Our Work" (links to Services or a dedicated Gallery section).
+    *   **Trust & Differentiators Section**: 
+        *   **H2**: "The Southfork Sealcoat Difference."
+        *   3-column layout, each with an icon, short title, and 2-3 sentences:
+            *   **Column 1**: Icon (e.g., Power Washer) + "Meticulous Preparation" + Description.
+            *   **Column 2**: Icon (e.g., Squeegee) + "Hand-Applied Durability" + Description.
+            *   **Column 3**: Icon (e.g., Snowflake/Sun) + "Idaho Climate Engineered" + Description.
+    *   **Before & After Gallery Section**: 
+        *   **H2**: "See the Transformation: Our Work Speaks for Itself."
+        *   Interactive image slider (e.g., `react-before-after-slider`) showcasing 3-5 high-quality residential projects.
+        *   Small text below: "40+ Jobs Completed Across Southeast Idaho."
+    *   **Testimonials/Social Proof Section**: 
+        *   **H2**: "What Our Neighbors Say."
+        *   Carousel of 3-5 short, impactful testimonials (placeholder for now, e.g., "Southfork Sealcoat transformed my driveway! Highly recommend their attention to detail.").
+        *   Link to Google Business Profile (once reviews are established).
+    *   **Call to Action Block**: 
+        *   **H2**: "Ready for a Driveway That Lasts?"
+        *   Paragraph: "Get a free, no-obligation estimate from Southeast Idaho's trusted sealcoating professionals."
+        *   **CTA**: "Request Your Free Estimate Today" (Accent Yellow).
+    *   **Footer**: Copyright, Privacy Policy, Terms of Service, Quick Links, Contact Info, Social Media Icons.
+
+### 4.2 Services Page (`/services`)
+*   **Goal**: Clearly describe all services, emphasize value, and drive quote requests.
+*   **Layout**: 
+    *   **Header**: Consistent with Homepage.
+    *   **Hero Section**: 
+        *   **H1**: "Our Premium Sealcoating Services."
+        *   Brief introductory paragraph about commitment to quality.
+    *   **Service Sections (Repeated for each service)**:
+        *   **H2**: "Premium Driveway Sealcoating."
+        *   Image (e.g., hand-squeegee in action).
+        *   Detailed description: Explain the process (power wash, prime, hand-squeegee), benefits (UV protection, crack prevention, enhanced curb appeal), and why Southfork's method is superior.
+        *   Bullet points for key features (e.g., "Thick, uniform application," "Long-lasting protection").
+        *   **H3**: "What's Included:"
+        *   List of steps (e.g., "Thorough power washing," "Oil spot priming," "Two coats of premium sealer").
+        *   **CTA**: "Get a Sealcoating Estimate" (Accent Yellow).
+        *   Repeat similar structure for:
+            *   **Crack Filling**: Focus on preventing water damage and extending pavement life. Explain it's part of the prep.
+            *   **Line Striping**: Professional, crisp lines for driveways or small private lots.
+            *   **Patching & Spot Repairs**: Emphasize this is done *before* sealing for a smooth finish.
+    *   **FAQ Snippet**: 2-3 common questions related to services, linking to the full Blog/FAQ page.
+    *   **Footer**: Consistent with Homepage.
+
+### 4.3 Local Service Area Pages (`/areas/[city-name]`) - e.g., `/areas/rigby`
+*   **Goal**: Rank for local search terms, build local authority, and capture city-specific leads.
+*   **Layout**: 
+    *   **Header**: Consistent with Homepage.
+    *   **Hero Section**: 
+        *   **H1**: "Rigby Sealcoating Experts: Protecting Your Driveway Investment."
+        *   Introductory paragraph: "Southfork Sealcoat proudly serves residential homeowners in Rigby, ID, providing top-tier asphalt sealcoating services designed for our unique climate."
+    *   **Why Choose Us in [City] Section**: 
+        *   **H2**: "Why Rigby Homeowners Trust Southfork Sealcoat."
+        *   Paragraph emphasizing local presence, understanding of local conditions, and commitment to the community.
+        *   Placeholder for a local testimonial or a small map snippet.
+    *   **Services Overview**: 
+        *   **H2**: "Our Services for Rigby Residents."
+        *   Briefly list and link to main services (Sealcoating, Crack Filling, etc.), re-emphasizing their benefits for Rigby properties.
+    *   **Local SEO Content Block**: 
+        *   **H3**: "Sealcoating in Rigby: What You Need to Know."
+        *   Paragraph discussing specific challenges or benefits of sealcoating in Rigby (e.g., "Rigby's temperature fluctuations make quality sealcoating essential...").
+        *   Include keywords naturally: "Rigby driveway sealing," "asphalt repair Rigby ID."
+    *   **Call to Action Block**: 
+        *   **H2**: "Ready for a Durable Driveway in Rigby?"
+        *   **CTA**: "Request Your Free Rigby Estimate" (Accent Yellow).
+    *   **Footer**: Consistent with Homepage.
+
+### 4.4 About Us Page (`/about`)
+*   **Goal**: Build personal connection, reinforce credibility, and showcase expertise.
+*   **Layout**: 
+    *   **Header**: Consistent with Homepage.
+    *   **Hero Section**: 
+        *   **H1**: "Our Story: Quality, Craftsmanship, and Community."
+        *   Image of Joel (owner) or crew at work.
+    *   **Company Story Section**: 
+        *   **H2**: "Meet Joel & The Southfork Sealcoat Vision."
+        *   Narrative about Joel's journey, passion for quality, and commitment to Southeast Idaho.
+        *   Emphasize family-owned values (if applicable) and the 
+commitment to delivering superior results.
+    *   **H3**: "Our Values:"
+        *   Short bulleted list: Integrity, Quality, Durability, Customer Satisfaction, Local Focus.
+    *   **The Process Section**: 
+        *   **H2**: "Our Meticulous 4-Step Process."
+        *   Visual representation (e.g., icons with short descriptions) of:
+            1.  **Clean**: Thorough power washing and debris removal.
+            2.  **Prep**: Crack filling, oil spot priming, and patching.
+            3.  **Seal**: Hand-squeegeed application of premium sealer.
+            4.  **Cure**: Proper drying time for maximum durability.
+    *   **Proof of Expertise Section**: 
+        *   **H2**: "Experience You Can Trust."
+        *   "Over 40 residential jobs completed in 2 years."
+        *   Placeholder for future testimonials or a link to the Before & After gallery.
+    *   **Call to Action Block**: 
+        *   **H2**: "Ready to Experience the Southfork Difference?"
+        *   **CTA**: "Request Your Free Estimate" (Accent Yellow).
+    *   **Footer**: Consistent with Homepage.
+
+### 4.5 Blog / FAQ Hub (`/blog`)
+*   **Goal**: Educate homeowners, improve SEO, and establish authority.
+*   **Layout**: 
+    *   **Header**: Consistent with Homepage.
+    *   **Hero Section**: 
+        *   **H1**: "Your Guide to Driveway Care in Southeast Idaho."
+        *   Introductory paragraph: "Learn how to protect and extend the life of your asphalt driveway with expert insights from Southfork Sealcoat."
+    *   **Blog Post Listing**: 
+        *   **H2**: "Latest Articles."
+        *   Card-based layout for blog posts, each showing a featured image, title, short excerpt, and read time.
+        *   Filter/Search functionality (optional).
+        *   Example Post Titles:
+            *   "Why Sealcoating Matters in Idaho’s Climate."
+            *   "Top 5 Ways to Extend Your Driveway’s Life."
+            *   "DIY vs Professional Sealcoating: What You Should Know."
+            *   "Understanding Asphalt Cracks: Causes and Solutions."
+    *   **FAQ Section**: 
+        *   **H2**: "Frequently Asked Questions."
+        *   Accordion/collapsible sections for each question and answer.
+        *   Example Questions:
+            *   "How often should I sealcoat my driveway?"
+            *   "Does sealcoating prevent cracks?"
+            *   "How long does a sealcoat last in Idaho?"
+            *   "What is the best time of year to sealcoat?"
+            *   "What kind of sealer do you use?"
+    *   **Call to Action Block**: 
+        *   **H2**: "Still Have Questions?"
+        *   **CTA**: "Contact Us for Expert Advice" (Accent Yellow).
+    *   **Footer**: Consistent with Homepage.
+
+### 4.6 Quote Request Page (`/quote`)
+*   **Goal**: Efficiently capture lead information and encourage submissions.
+*   **Layout**: 
+    *   **Header**: Consistent with Homepage.
+    *   **Hero Section**: 
+        *   **H1**: "Get Your Free Sealcoating Estimate."
+        *   Introductory paragraph: "Fill out the form below, and we'll provide a detailed, no-obligation estimate for your driveway."
+    *   **Quote Request Form**: 
+        *   **Fields**:
+            *   Full Name (Text Input, Required)
+            *   Email Address (Email Input, Required)
+            *   Phone Number (Tel Input, Required)
+            *   Street Address (Text Input, Required)
+            *   City (Dropdown: Rigby, Rexburg, Idaho Falls, Ammon, Other - Text Input if 'Other')
+            *   ZIP Code (Text Input, Required)
+            *   Driveway Condition (Dropdown: Excellent, Good, Fair, Poor - with tooltips/examples)
+            *   Approximate Driveway Size (Optional, Text Input, e.g., "2-car," "3-car," or "approx. sq ft").
+            *   Notes/Special Requests (Textarea, Optional)
+            *   Preferred Contact Method (Radio Buttons: Phone, Email, Text Message)
+            *   Checkbox: "I agree to receive communications from Southfork Sealcoat." (Required)
+        *   **Optional Instant Estimate Calculator**: 
+            *   If 'Approximate Driveway Size' is entered, display a rough estimate range (e.g., "Your preliminary estimate is between $X and $Y. Final quote requires a site visit.").
+            *   Clearly label as "Preliminary Estimate Only."
+        *   **Submit Button**: "Get My Free Estimate" (Accent Yellow).
+    *   **Trust Elements**: Small section with badges (e.g., "Licensed & Insured," "Local Experts") or a short testimonial snippet.
+    *   **Footer**: Consistent with Homepage.
+
+### 4.7 Online Payment Page (`/pay`)
+*   **Goal**: Provide a secure and convenient way for customers to pay online.
+*   **Layout**: 
+    *   **Header**: Consistent with Homepage.
+    *   **Hero Section**: 
+        *   **H1**: "Secure Online Payment."
+        *   Introductory paragraph: "Easily and securely pay for your Southfork Sealcoat services."
+    *   **Payment Form**: 
+        *   **Fields**:
+            *   Customer Name (Text Input, Required)
+            *   Job Address (Text Input, Required)
+            *   Invoice Number (Text Input, Optional, but recommended for tracking)
+            *   Payment Amount (Number Input, Required)
+            *   Credit Card Details (Integrated via Stripe/Square API - Card Number, Expiry, CVC)
+        *   **Submit Button**: "Pay Now" (Accent Yellow).
+    *   **Security Indicators**: Prominent display of security badges (e.g., SSL certificate, PCI compliance, Stripe/Square logo).
+    *   **Confirmation**: After successful payment, display a confirmation message and send an email receipt.
+    *   **Footer**: Consistent with Homepage.
+
+### 4.8 Employee Dashboard (`/employee-login` & `/employee/report`)
+*   **Goal**: Securely enable employees to report job details and upload photos.
+*   **Layout**: 
+    *   **Login Page (`/employee-login`)**:
+        *   **H1**: "Employee Login."
+        *   Username/Email (Text Input)
+        *   Password (Password Input)
+        *   "Forgot Password" link.
+        *   **Login Button**: (Accent Yellow).
+    *   **Dashboard (`/employee/report` - after login)**:
+        *   **H1**: "Job Report Submission."
+        *   **Job Report Form**:
+            *   Date (Date Picker, Default to Today)
+            *   Employee Name (Pre-filled from login)
+            *   Customer Name (Text Input, Required)
+            *   Job Address (Text Input, Required)
+            *   Services Performed (Checkboxes: Sealcoating, Crack Filling, Line Striping, Patching)
+            *   Materials Used (Textarea, e.g., "3 buckets sealer, 10 lbs crack filler")
+            *   Hours Worked (Number Input, Required)
+            *   Notes (Textarea, Optional)
+            *   **Photo Upload**: Drag-and-drop or file input for multiple images (Before, During, After categories).
+            *   **Submit Button**: "Submit Job Report" (Accent Yellow).
+        *   **Admin View (`/employee/admin-reports` - owner only)**:
+            *   Table displaying all submitted job reports with filters (by employee, date, customer).
+            *   Ability to view details of each report, including uploaded photos.
+            *   Export to CSV/Excel option.
+    *   **Footer**: Minimal, consistent with other pages.
+
+---
+
+## 5. Technical Architecture & Integrations
+
+### 5.1 Frontend (Client-Side)
+*   **Framework**: React.js (with Next.js for SSR/SSG for SEO benefits) or a similar modern JavaScript framework.
+*   **Styling**: Tailwind CSS for utility-first styling and rapid development, ensuring responsiveness.
+*   **Animations**: Subtle CSS transitions and animations for a polished user experience.
+*   **Image Optimization**: Next.js Image component or similar for lazy loading and responsive images.
+
+### 5.2 Backend (Server-Side)
+*   **Platform**: Node.js with Express.js or Next.js API Routes.
+*   **Database**: PostgreSQL or MySQL for storing job reports, employee data, and potentially blog content.
+    *   **Employee Database Schema**:
+        ```sql
+        CREATE TABLE employees (
+            id SERIAL PRIMARY KEY,
+            username VARCHAR(255) UNIQUE NOT NULL,
+            password_hash VARCHAR(255) NOT NULL,
+            full_name VARCHAR(255) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+
+        CREATE TABLE job_reports (
+            id SERIAL PRIMARY KEY,
+            employee_id INTEGER REFERENCES employees(id),
+            report_date DATE NOT NULL,
+            customer_name VARCHAR(255) NOT NULL,
+            job_address VARCHAR(255) NOT NULL,
+            services_performed TEXT[], -- Array of strings (e.g., {'Sealcoating', 'Crack Filling'})
+            materials_used TEXT,
+            hours_worked DECIMAL(4,2) NOT NULL,
+            notes TEXT,
+            photo_urls TEXT[], -- Array of S3/CDN URLs
+            submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+        ```
+*   **Authentication**: Secure JWT-based authentication for the employee dashboard.
+*   **File Storage**: AWS S3 or similar cloud storage for uploaded job photos.
+
+### 5.3 Integrations
+*   **Payment Gateway**: Stripe or Square API for secure credit card processing.
+*   **Email Notifications**: SendGrid, Mailgun, or similar for lead form submissions and payment confirmations.
+*   **Google Maps API**: For address auto-completion in forms (optional) and displaying service areas.
+*   **Google Analytics / Tag Manager**: For website analytics and tracking.
+
+### 5.4 SEO Strategy
+*   **Keyword Research**: Focus on long-tail keywords like "residential sealcoating Rigby Idaho," "driveway repair Rexburg," "asphalt maintenance Idaho Falls."
+*   **On-Page SEO**: 
+    *   **Meta Titles & Descriptions**: Unique, keyword-rich for every page.
+    *   **Header Tags (H1, H2, H3)**: Structured and semantic use of keywords.
+    *   **Image Alt Text**: Descriptive alt text for all images.
+    *   **Internal Linking**: Strategic linking between related pages (e.g., Blog posts linking to Services, Local pages linking to Quote).
+*   **Local SEO**: 
+    *   **Google My Business**: Optimize and link to a strong GMB profile.
+    *   **Schema Markup**: Implement LocalBusiness schema, FAQ schema, and BreadcrumbList schema.
+    *   **NAP Consistency**: Ensure Name, Address, Phone (NAP) are consistent across all online properties.
+*   **Content Strategy**: Regular blog posts targeting relevant keywords and answering common customer questions.
+
+---
+
+## 6. Implementation Roadmap
+
+This roadmap outlines a phased approach for development, assuming the use of AI-assisted builders or a development team.
+
+### Phase 1: Foundation & Core Pages (Weeks 1-2)
+1.  **Project Setup**: Initialize project with chosen framework (e.g., Next.js, Tailwind CSS).
+2.  **Master Vision Prompt**: Input the overarching project brief into the AI builder or establish core design system.
+3.  **Homepage Development**: Build Hero, Differentiators, Before/After, and CTA sections.
+4.  **Services Page Development**: Create detailed service sections with descriptions and CTAs.
+5.  **About Us Page Development**: Implement owner story, process, and trust elements.
+6.  **Basic Navigation & Footer**: Ensure consistent header, navigation, and footer across these core pages.
+
+### Phase 2: Lead Generation & SEO Expansion (Weeks 3-4)
+1.  **Quote Request Page**: Develop the detailed form, including optional instant estimate calculator.
+2.  **Email Integration**: Connect quote form to email notification system.
+3.  **Local SEO Pages**: Create templates and populate content for Rigby, Rexburg, Idaho Falls, and Ammon.
+4.  **Blog / FAQ Hub**: Implement blog post listing and FAQ accordion functionality.
+5.  **Initial SEO Configuration**: Set up meta tags, basic schema markup, and Google Analytics.
+
+### Phase 3: Operational Tools & Refinements (Weeks 5-6)
+1.  **Employee Dashboard**: Develop secure login, job report form, photo upload, and admin view.
+2.  **Database Integration**: Connect employee dashboard to backend database for data storage.
+3.  **Online Payment Page**: Integrate Stripe/Square API for secure payment processing.
+4.  **Security & Performance**: Implement SSL, optimize images, and ensure fast loading times.
+5.  **Mobile Responsiveness**: Thorough testing and adjustments across various mobile devices.
+
+### Phase 4: Testing, Launch & Post-Launch (Week 7+)
+1.  **Comprehensive Testing**: 
+    *   **Functionality**: All forms, payments, employee dashboard features.
+    *   **User Experience**: Navigation, responsiveness, accessibility.
+    *   **Content Review**: Proofreading, accuracy, brand consistency.
+2.  **Pre-Launch SEO Audit**: Verify all SEO elements are correctly implemented.
+3.  **Deployment**: Launch the website to a live environment.
+4.  **Post-Launch Monitoring**: Monitor analytics, search rankings, and user feedback.
+5.  **Content Plan Execution**: Begin regularly publishing blog posts and gathering testimonials/reviews.
+
+---
+
+**Author**: Manus AI
+**Date**: April 24, 2026
+
+---
+
+## 7. References
+
+[1] Facebook Group Post - South Fork Sealcoat LLC. (2025, July 21). *We're South Fork Sealcoat LLC — and we've got an open schedule ...*. Retrieved from https://www.facebook.com/groups/710419150487384/posts/1267552011440759/
+[2] Bizapedia - SOUTHFORK SEALCOAT LLC. (n.d.). *SOUTHFORK SEALCOAT LLC in Rigby, ID | Company Info & Reviews*. Retrieved from https://www.bizapedia.com/id/southfork-sealcoat-llc.html
+[3] EverLine Coatings. (n.d.). *Extending Asphalt Life in Boise: The Role of Mastic Crack Sealing*. Retrieved from https://everlinecoatings.com/us/id/boise/resources/extending-asphalt-life-in-boise-the-role-of-mastic-crack-sealing/
+[4] Cofield Asphalt Refinishing. (2020, September 17). *8 Best Sealcoating Practices*. Retrieved from https://cofieldllc.com/8-best-sealcoating-practice/
+[5] AAA Top Quality Asphalt. (2024, May 15). *Best Practices for Asphalt Sealcoating Success*. Retrieved from https://aaatopqualityasphalt.com/asphalt-paving-blog/best-practices-for-asphalt-sealcoating-success/
