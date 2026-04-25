@@ -27,7 +27,7 @@ export function BeforeAfterSlider({
         {hasImages ? (
           <>
             <Image alt={`${label} before`} className="object-cover" fill sizes="(min-width: 1024px) 33vw, 100vw" src={beforeImageSrc!} />
-            <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}>
+            <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${value}%)` }}>
               <Image alt={`${label} after`} className="object-cover" fill sizes="(min-width: 1024px) 33vw, 100vw" src={afterImageSrc!} />
             </div>
           </>
@@ -36,7 +36,7 @@ export function BeforeAfterSlider({
             <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(60,60,60,0.95),rgba(15,15,15,0.95))]" />
             <div
               className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,215,0,0.3),rgba(255,140,0,0.22)),radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_34%)]"
-              style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
+              style={{ clipPath: `inset(0 0 0 ${value}%)` }}
             />
           </>
         )}
