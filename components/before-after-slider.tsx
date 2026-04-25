@@ -1,24 +1,45 @@
 "use client";
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 type BeforeAfterSliderProps = {
   label: string;
   before: string;
   after: string;
+  beforeImageSrc?: string;
+  afterImageSrc?: string;
 };
 
-export function BeforeAfterSlider({ label, before, after }: BeforeAfterSliderProps) {
+export function BeforeAfterSlider({
+  label,
+  before,
+  after,
+  beforeImageSrc,
+  afterImageSrc
+}: BeforeAfterSliderProps) {
   const [value, setValue] = useState(55);
+  const hasImages = Boolean(beforeImageSrc && afterImageSrc);
 
   return (
     <figure className="card-surface overflow-hidden rounded-[1.75rem]">
       <div className="relative aspect-[4/3]">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(60,60,60,0.95),rgba(15,15,15,0.95))]" />
-        <div
-          className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,215,0,0.3),rgba(255,140,0,0.22)),radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_34%)]"
-          style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
-        />
+        {hasImages ? (
+          <>
+            <Image alt={`${label} before`} className="object-cover" fill sizes="(min-width: 1024px) 33vw, 100vw" src={beforeImageSrc!} />
+            <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}>
+              <Image alt={`${label} after`} className="object-cover" fill sizes="(min-width: 1024px) 33vw, 100vw" src={afterImageSrc!} />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(60,60,60,0.95),rgba(15,15,15,0.95))]" />
+            <div
+              className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,215,0,0.3),rgba(255,140,0,0.22)),radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_34%)]"
+              style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
+            />
+          </>
+        )}
         <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(0,0,0,0.08),rgba(0,0,0,0.55))]" />
         <div className="absolute left-4 top-4 rounded-full bg-black/55 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-white/80">
           Before

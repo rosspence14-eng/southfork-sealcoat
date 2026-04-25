@@ -106,7 +106,13 @@ export default function HomePage() {
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <BeforeAfterSlider label="Rigby residential driveway" before="Faded surface and visible wear" after="Dark, uniform, and protected finish" />
             <BeforeAfterSlider label="Rexburg family home" before="Cracked and dry asphalt" after="Restored curb appeal" />
-            <BeforeAfterSlider label="Idaho Falls driveway" before="Patchy top layer" after="Even hand-squeegeed coat" />
+            <BeforeAfterSlider
+              after="Even hand-squeegeed coat"
+              afterImageSrc="/images/before-after/idaho-falls-after.jpg"
+              before="Patchy top layer"
+              beforeImageSrc="/images/before-after/idaho-falls-before.jpg"
+              label="Idaho Falls driveway"
+            />
           </div>
           <p className="mt-6 text-sm tracking-wide text-white/55">40+ jobs completed across Southeast Idaho</p>
         </div>
